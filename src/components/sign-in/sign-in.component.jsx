@@ -18,14 +18,8 @@ const SignIn = ({ googleSignInStart, emailSignInStart }) => {
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
-		// try {
-		// 	await auth.signInWithEmailAndPassword(email, password);
-		// 	setCredentials({ email: '', password: '' });
-		// } catch (error) {
-		// 	console.log(error);
-		// }
 		emailSignInStart(email, password);
-		setCredentials({ name: '', password: '' });
+		setCredentials({ email: '', password: '' });
 	};
 
 	const handleChange = (event) => {
@@ -55,7 +49,7 @@ const SignIn = ({ googleSignInStart, emailSignInStart }) => {
 					label="password"
 				/>
 				<div className="buttons">
-					<CustomButton >Sign In</CustomButton>
+					<CustomButton>Sign In</CustomButton>
 					<CustomButton
 						type="button"
 						onClick={googleSignInStart}

@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 
-import FormInput from "../form-input/form-input.component";
+import FormInput from '../form-input/form-input.component';
 
-import CustomButton from "../custom-button/custom-button.component";
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
-import "./sign-up.styles.scss";
+import CustomButton from '../custom-button/custom-button.component';
+import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
+import './sign-up.styles.scss';
 
 class SignUp extends React.Component {
 	constructor() {
 		super();
 
 		this.state = {
-			displayName: "",
-			email: "",
-			password: "",
-			confirmPassword: "",
+			displayName: '',
+			email: '',
+			password: '',
+			confirmPassword: '',
 		};
 	}
 
@@ -36,10 +36,10 @@ class SignUp extends React.Component {
 			await createUserProfileDocument(user, { displayName });
 
 			this.setState({
-				displayName: "",
-				email: "",
-				password: "",
-				confirmPassword: "",
+				displayName: '',
+				email: '',
+				password: '',
+				confirmPassword: '',
 			});
 		} catch (error) {
 			console.error(error);
