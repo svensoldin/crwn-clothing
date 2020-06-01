@@ -6,9 +6,11 @@ import { createStructuredSelector } from 'reselect';
 
 import Homepage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shop/shop.component';
-import Header from './components/header/header.component.jsx';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component.jsx';
 import CheckoutPage from './pages/checkout/checkout.component';
+import ContactPage from './pages/contact/contact.component';
+import Header from './components/header/header.component.jsx';
+
 
 import { selectCurrentUser } from './redux/user/user.selectors';
 import { checkUserSession } from './redux/user/user.actions';
@@ -37,6 +39,7 @@ const App = ({ checkUserSession, currentUser }) => {
 						}
 					/>
 					<Route exact path="/checkout" component={CheckoutPage} />
+					<Route exact path='/contact' component={ContactPage} />		
 				</Switch>
 			</div>
 		);

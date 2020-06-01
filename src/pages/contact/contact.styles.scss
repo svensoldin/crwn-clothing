@@ -1,0 +1,25 @@
+.contact {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	.email {
+		font-size: 20px;
+	}
+
+	.social {
+		display: flex;
+		justify-content: space-between;
+		width: 150px;
+		margin: 30px 0px;
+
+		.link {
+			width: 50px;
+			height: auto;
+
+			&:hover {
+				color: grey;
+			}
+		}
+	}
+}
