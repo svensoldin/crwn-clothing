@@ -1,15 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { addItem } from '../../redux/cart/cart.actions';
 
 import CustomButton from '../../components/custom-button/custom-button.component';
+import GoBack from '../../components/go-back/go-back.component';
 import './item.styles.scss';
 
-const ItemPage = ({ match, collection, addItem }) => {
+const ItemPage = ({ match, collection, addItem, history }) => {
 	const item = collection.items[match.params.itemId];
 	const { imageUrl, name, price } = item;
+	console.log(history)
 	return (
 		<div className="item-page">
+			<GoBack />
+			<Link className='link' to={`/shop/${collection.title.toLowerCase()}`}>{`${collection.title.toUpperCase()}`}</Link>						
 			<div className='image'>
 				<img src={`${imageUrl}`} alt={`${name}`}/>
 			</div>

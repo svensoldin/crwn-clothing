@@ -5,6 +5,7 @@ import { selectCollection } from '../../redux/shop/shop.selectors';
 
 import CollectionItem from '../../components/collection-item/collection-item.component';
 import ItemPage from '../item/item.component';
+import GoBack from '../../components/go-back/go-back.component';
 import './collection.styles.scss';
 
 const CollectionPage = ({ collection, match }) => {
@@ -12,7 +13,10 @@ const CollectionPage = ({ collection, match }) => {
 	return (
 		<div className="collection-page">
 			<Route exact path={`${match.path}`}>
-				<h2 className="title">{title}</h2>
+				<header className='collection-header'>
+					<GoBack />
+					<h2 className="title">{title}</h2>
+				</header>
 				<div className="items">
 					{items.map((item, i) => (
 						<Link to={`${match.url}/${i}`} key={item.id}>
@@ -28,6 +32,7 @@ const CollectionPage = ({ collection, match }) => {
 					<ItemPage
 						collection={collection}
 						match={obj.match}
+						history={obj.history}
 					/>
 				)}
 			/>
