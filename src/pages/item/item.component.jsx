@@ -10,27 +10,30 @@ import './item.styles.scss';
 const ItemPage = ({ match, collection, addItem, history }) => {
 	const item = collection.items[match.params.itemId];
 	const { imageUrl, name, price } = item;
-	console.log(history)
 	return (
 		<div className="item-page">
-			<GoBack />
-			<Link className='link' to={`/shop/${collection.title.toLowerCase()}`}>{`${collection.title.toUpperCase()}`}</Link>						
-			<div className='image'>
-				<img src={`${imageUrl}`} alt={`${name}`}/>
+			<div className='links'>
+				<GoBack />
+				<Link className='' to={`/shop/${collection.title.toLowerCase()}`}>{`${collection.title.toUpperCase()}`}</Link>
 			</div>
-			<div className='info-button'>
-				<div className="info">
-					<h1>{name}</h1>
-					<h2>${price}</h2>
+			<div className='item'>			
+				<div className='image'>
+					<img src={`${imageUrl}`} alt={`${name}`}/>
 				</div>
-				<div className='button'>
-					<CustomButton
-						className="custom-button"
-						onClick={() => addItem(item)}
-						inverted
-					>
-						Add to cart
-					</CustomButton>
+				<div className='info-button'>
+					<div className="info">
+						<h1>{name}</h1>
+						<h2>${price}</h2>
+					</div>
+					<div className='button'>
+						<CustomButton
+							className="custom-button"
+							onClick={() => addItem(item)}
+							inverted
+						>
+							Add to cart
+						</CustomButton>
+					</div>
 				</div>
 			</div>
 		</div>

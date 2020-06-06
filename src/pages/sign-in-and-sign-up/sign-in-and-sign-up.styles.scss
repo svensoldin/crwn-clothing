@@ -3,4 +3,15 @@
   display: flex;
   justify-content: space-between;
   margin: 30px auto;
+
+  @media screen and (max-width: 800px) {
+	  	width: 90%;
+	  	flex-direction: column;
+	  	justify-content: unset;
+		align-items: center;
+
+		.sign-in {
+			margin-bottom: 50px;
+		}
+ 	}
 }
