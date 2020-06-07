@@ -1,10 +1,11 @@
-import React from 'react';
+ import React from 'react';
 import { connect } from 'react-redux';
-import { Route, Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { selectCollection } from '../../redux/shop/shop.selectors';
 
 import CollectionItem from '../../components/collection-item/collection-item.component';
 import ItemPage from '../item/item.component';
+import Spinner from '../../components/spinner/spinner.component';
 import GoBack from '../../components/go-back/go-back.component';
 import './collection.styles.scss';
 
@@ -19,9 +20,7 @@ const CollectionPage = ({ collection, match }) => {
 				</header>
 				<div className="items">
 					{items.map((item, i) => (
-						<Link to={`${match.url}/${i}`} key={item.id}>
-							<CollectionItem item={item} collectionName={`${match.url}`} index={i} />
-						</Link>	
+						<CollectionItem item={item} linkUrl={`${match.url}/${i}`} key={item.id} />	
 					))}
 				</div>
 			</Route>
@@ -29,11 +28,13 @@ const CollectionPage = ({ collection, match }) => {
 				exact
 				path={`${match.path}/:itemId`}
 				render={(obj) => (
+					collection ?
 					<ItemPage
 						collection={collection}
 						match={obj.match}
 						history={obj.history}
-					/>
+					/> :
+					<Spinner />
 				)}
 			/>
 		</div>

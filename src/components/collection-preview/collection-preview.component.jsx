@@ -11,7 +11,7 @@ const CollectionPreview = ({ title, items }) => {
 				{items
 					.filter((item, idx) => idx < 4)
 					.map((item, i) => (
-						<Link to={`/shop/${title.toLowerCase()}/${i}`} key={item.id}><CollectionItem item={item} /></Link>
+						<CollectionItem item={item} key={item.id} linkUrl={`/shop/${title.toLowerCase()}/${i}`} />
 					))}
 			</div>
 		</div>

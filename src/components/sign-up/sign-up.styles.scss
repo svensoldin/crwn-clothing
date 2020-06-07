@@ -4,6 +4,16 @@
   width: 380px;
 
   .title {
-    margin: 10px 0;
-  }
+   	margin: 10px 0;
+  	}
+
+	.button {
+		display: flex;
+		justify-content: center;
+		width: 100%;
+	}
+
+	@media screen and (max-width: 800px) {
+		width: 80%;
+	}
 }
